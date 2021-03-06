@@ -6,4 +6,7 @@ body
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background: linear-gradient(to bottom, #0000ff 16%, #9900cc 65%); ;
+    font-family: fantasy
+
 }
