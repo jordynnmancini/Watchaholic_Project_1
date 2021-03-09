@@ -69,3 +69,37 @@ let runTitleAPI = function (movieID) {
 
 
 runSearchAPI(" "); 
+
+$(".btn").on("click", function (event) {
+  // Preventing the button from trying to submit the form......
+event.preventDefault();
+
+var title = $("#title-text").val().trim();
+console.log(title);
+var apikey = ""
+var requestUrl = "http://www.omdbapi.com/?t="+title+"&apikey="+apikey;
+
+fetch(requestUrl)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data)
+        // empty details div //
+        $("#omdb-results-container").empty();
+        // create elements and assign API info to the element //
+        var titleEl = $("<h2>").text(data.Title);
+        var yearEl = $("<p>").text("Year Released: " + data.Year);   
+        var actorsEl = $("<p>").text("Actors: " + data.Actors);   
+        var plotEl = $("<p>").text("Plot: " + data.Plot);   
+        var ratedEl = $("<p>").text("Rated: " + data.Rated);   
+        var ratingEl = $("<p>").text("IMDB Rating: " + data.imdbRating);
+        var runtimeEl = $("<p>").text("Runtime: " + data.Runtime);
+
+        // create div and append elements to div //
+        var divFormat = $("<div>");
+        divFormat.append(titleEl, plotEl, actorsEl, yearEl,  ratedEl, ratingEl, runtimeEl);
+        // set div to html //
+        $("#omdb-results-container").html(divFormat);
+    });
+  });
