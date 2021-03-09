@@ -3,7 +3,7 @@ const titleInputEl = document.querySelector("#title-input");
 const streamingResultsEl = document.querySelector("#streaming-results-container");
 const streamingResultsList = document.querySelector("#streaming-list"); 
 
-const apiKey = '6tDwvGkK2m93OLNa2ZkWAbvPKaIJ2jWeqpCUmzQY';
+const apiKey = '';
 
 let formSubmitHandler = function (event) {
     event.preventDefault(); 
@@ -70,11 +70,14 @@ let runTitleAPI = function (movieID) {
 
 runSearchAPI(" "); 
 
+$(".btn").on("click", function (event) {
+  // Preventing the button from trying to submit the form......
+event.preventDefault();
 
-var apikey = "fdb6720d"
-var movieName = "Game of Thrones"
-
-var requestUrl = "http://www.omdbapi.com/?t="+movieName+"&apikey="+apikey;
+var title = $("#title-text").val().trim();
+console.log(title);
+var apikey = ""
+var requestUrl = "http://www.omdbapi.com/?t="+title+"&apikey="+apikey;
 
 fetch(requestUrl)
     .then(function(response) {
@@ -99,3 +102,4 @@ fetch(requestUrl)
         // set div to html //
         $("#omdb-results-container").html(divFormat);
     });
+  });
