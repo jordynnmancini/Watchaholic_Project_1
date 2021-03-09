@@ -3,7 +3,7 @@ const titleInputEl = document.querySelector("#title-input");
 const streamingResultsEl = document.querySelector("#streaming-results-container");
 const streamingResultsList = document.querySelector("#streaming-list"); 
 
-const apiKey = '';
+const apiKey = '6tDwvGkK2m93OLNa2ZkWAbvPKaIJ2jWeqpCUmzQY';
 
 let formSubmitHandler = function (event) {
     event.preventDefault(); 
@@ -69,3 +69,33 @@ let runTitleAPI = function (movieID) {
 
 
 runSearchAPI(" "); 
+
+
+var apikey = "fdb6720d"
+var movieName = "Game of Thrones"
+
+var requestUrl = "http://www.omdbapi.com/?t="+movieName+"&apikey="+apikey;
+
+fetch(requestUrl)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data)
+        // empty details div //
+        $("#omdb-results-container").empty();
+        // create elements and assign API info to the element //
+        var titleEl = $("<h2>").text(data.Title);
+        var yearEl = $("<p>").text("Year Released: " + data.Year);   
+        var actorsEl = $("<p>").text("Actors: " + data.Actors);   
+        var plotEl = $("<p>").text("Plot: " + data.Plot);   
+        var ratedEl = $("<p>").text("Rated: " + data.Rated);   
+        var ratingEl = $("<p>").text("IMDB Rating: " + data.imdbRating);
+        var runtimeEl = $("<p>").text("Runtime: " + data.Runtime);
+
+        // create div and append elements to div //
+        var divFormat = $("<div>");
+        divFormat.append(titleEl, plotEl, actorsEl, yearEl,  ratedEl, ratingEl, runtimeEl);
+        // set div to html //
+        $("#omdb-results-container").html(divFormat);
+    });
