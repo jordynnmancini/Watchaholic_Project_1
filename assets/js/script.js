@@ -138,8 +138,8 @@ fetch(requestUrl)
         var ratingEl = $("<p>").text("IMDB Rating: " + data.imdbRating);
         var runtimeEl = $("<p>").text("Runtime: " + data.Runtime);
         var posterEl = $("<img>").attr("src", data.Poster);
-        var genreEl = $("<p>").text("Runtime: " + data.Genre);
-        var awardsEl = $("<p>").text("Runtime: " + data.Awards);
+        var genreEl = $("<p>").text("Genre: " + data.Genre);
+        var awardsEl = $("<p>").text("Awards: " + data.Awards);
        
 
         // create div and append elements to div //
