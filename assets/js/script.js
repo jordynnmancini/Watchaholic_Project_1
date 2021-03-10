@@ -1,32 +1,39 @@
 const searchTitleForm = document.querySelector("#title-form");
 const titleInputEl = document.querySelector("#title-input");
 const streamingResultsEl = document.querySelector("#streaming-results-container");
-const streamingResultsList = document.querySelector("#streaming-list"); 
+const streamingResultsList = document.querySelector("#streaming-list");
 
-const apiKey = '6tDwvGkK2m93OLNa2ZkWAbvPKaIJ2jWeqpCUmzQY';
+const apiKey = 'hS3AcbOwvNPkH7KTEBOU8hfGk971AAexq4gZjvM1'
+
+// variables associated with Sam's code 
+let SourcesAvailable;
+let popServicesArray; 
+const popularServices = ['Netflix', 'Hulu', 'HBO MAX','HBO NOW', 'HBO GO', 'Amazon Prime', 'Disney+', 'AppleTV+', 'Showtime', 'STARZ'];
+
+
 
 let formSubmitHandler = function (event) {
-    event.preventDefault(); 
+  event.preventDefault();
 
-    var title = titleInputEl.value.trim();
+  var title = titleInputEl.value.trim();
 
-    if (title) {
-        runSearchAPI(title);
+  if (title) {
+    runSearchAPI(title);
 
-    }
+  }
 }
 
 let runSearchAPI = function (title) {
-    let searchURL = 'https://api.watchmode.com/v1/search/?apiKey=' + apiKey + '&search_field=name&search_value=' + title
+  let searchURL = 'https://api.watchmode.com/v1/search/?apiKey=' + apiKey + '&search_field=name&search_value=' + title
 
-    fetch(searchURL)
+  fetch(searchURL)
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
           console.log(data);
-        // locate ID and put into a variable 
-            let movieID = data.title_results[0].id
-            runTitleAPI(movieID); 
+          // locate ID and put into a variable 
+          let movieID = data.title_results[0].id
+          runTitleAPI(movieID);
         });
       } else {
         alert('Error');
@@ -38,23 +45,28 @@ let runSearchAPI = function (title) {
 };
 
 let runTitleAPI = function (movieID) {
-    let titleURL = 'https://api.watchmode.com/v1/title/' + movieID + '/details/?apiKey=' + apiKey + "&regions=US&append_to_response=sources"
+  let titleURL = 'https://api.watchmode.com/v1/title/' + movieID + '/details/?apiKey=' + apiKey + "&regions=US&append_to_response=sources"
 
-    fetch(titleURL)
+  fetch(titleURL)
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
           console.log(data);
-          // render urls for user to access movie on screen 
-          for (i=0; i < data.sources.length; i++) {
-            let link = data.sources[i].web_url; 
-            let li = document.createElement("li"); 
-            li.textContent = link; 
+          // render buttons for popular streaming services available
+          for (i = 0; i < data.sources.length; i++) {
+            let link = data.sources[i].web_url;
+            let li = document.createElement("li");
+            li.textContent = link;
             if (data.sources[i].type === "sub") {
-            streamingResultsEl.appendChild(li); 
+              //this is where I left off 
+              var streamingID = data.sources[i].source_id
+
+            } else {
+              //change this to append into a text box 
+              streamingResultsEl.appendChild(li);
             }
           }
-        
+
         });
       } else {
         alert('Error');
@@ -68,7 +80,37 @@ let runTitleAPI = function (movieID) {
 };
 
 
-runSearchAPI("Game of Thrones"); 
+runSearchAPI("Scott Pilgrim vs. the World");
+
+// Sam helped with following code 
+let runSourcesAPI = function () {
+  let sourcesURL = 'https://api.watchmode.com/v1/sources/?apiKey=' + apiKey + '&type=sub'
+
+  fetch(sourcesURL)
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          console.log(data);
+
+          SourcesAvailable = data; 
+          popServicesArray = data.filter((el) => {
+            return popularServices.includes(el.name);
+          })
+          console.log(popularServices);
+        });
+      } else {
+        alert('Error');
+      }
+    })
+    .catch(function (error) {
+      alert('Error.');
+    });
+}; 
+
+runSourcesAPI(); 
+
+
+
 
 $(".btn").on("click", function (event) {
   // Preventing the button from trying to submit the form......
