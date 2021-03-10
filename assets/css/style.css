@@ -6,7 +6,23 @@ body
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to bottom, #0000ff 16%, #9900cc 65%); ;
-    font-family: fantasy
-
+    background: linear-gradient(to bottom, black, #00076F,#44008B, #9F45B0, #E54ED0);
+    font-family:'Montserrat', sans-serif;
+    text-align: center;
 }
+
+.btn {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .btn {
+    transition-duration: 0.4s;
+  }
+  .btn:hover {
+    background: linear-gradient(to right, #00076F,#44008B, #9F45B0, #E54ED0 );
+    color:black;
+  }
