@@ -3,7 +3,7 @@ const titleInputEl = document.querySelector("#title-input");
 const streamingResultsEl = document.querySelector("#streaming-results-container");
 const streamingResultsList = document.querySelector("#streaming-list"); 
 
-const apiKey = '';
+const apiKey = '6tDwvGkK2m93OLNa2ZkWAbvPKaIJ2jWeqpCUmzQY';
 
 let formSubmitHandler = function (event) {
     event.preventDefault(); 
@@ -68,7 +68,7 @@ let runTitleAPI = function (movieID) {
 };
 
 
-runSearchAPI(" "); 
+runSearchAPI("Game of Thrones"); 
 
 $(".btn").on("click", function (event) {
   // Preventing the button from trying to submit the form......
@@ -76,7 +76,7 @@ event.preventDefault();
 
 var title = $("#title-text").val().trim();
 console.log(title);
-var apikey = ""
+var apikey = "fdb6720d"
 var requestUrl = "http://www.omdbapi.com/?t="+title+"&apikey="+apikey;
 
 fetch(requestUrl)
@@ -95,11 +95,16 @@ fetch(requestUrl)
         var ratedEl = $("<p>").text("Rated: " + data.Rated);   
         var ratingEl = $("<p>").text("IMDB Rating: " + data.imdbRating);
         var runtimeEl = $("<p>").text("Runtime: " + data.Runtime);
+        var posterEl = $("<img>").attr("src", data.Poster);
+        var genreEl = $("<p>").text("Runtime: " + data.Genre);
+        var awardsEl = $("<p>").text("Runtime: " + data.Awards);
+       
 
         // create div and append elements to div //
         var divFormat = $("<div>");
-        divFormat.append(titleEl, plotEl, actorsEl, yearEl,  ratedEl, ratingEl, runtimeEl);
+        divFormat.append(titleEl, posterEl, plotEl, actorsEl, yearEl, runtimeEl, genreEl, ratedEl, ratingEl, awardsEl);
         // set div to html //
         $("#omdb-results-container").html(divFormat);
     });
   });
+
