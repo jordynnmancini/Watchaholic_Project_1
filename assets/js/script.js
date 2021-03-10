@@ -54,16 +54,20 @@ let runTitleAPI = function (movieID) {
           console.log(data);
           // render buttons for popular streaming services available
           for (i = 0; i < data.sources.length; i++) {
-            let link = data.sources[i].web_url;
-            let li = document.createElement("li");
-            li.textContent = link;
             if (data.sources[i].type === "sub") {
-              //this is where I left off 
-              var streamingID = data.sources[i].source_id
+              if (data.sources[i].source_id = 203) {
+                let Netflix = document.createElement("a"); 
+                Netflix.textContent = "Netflix"
+                streamingResultsList.appendChild(Netflix); 
+              }
+              
 
             } else {
-              //change this to append into a text box 
-              streamingResultsEl.appendChild(li);
+              //appends links to an accordian feature 
+              let link = data.sources[i].web_url;
+              let li = document.createElement("li");
+              li.textContent = link;
+              additionalList.appendChild(li);
             }
           }
 
