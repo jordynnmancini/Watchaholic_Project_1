@@ -12,17 +12,17 @@ body
 }
 
 .btn {
-    border: 2px solid black;
-    background-color: white;
-    color: black;
-    padding: 10px 20px;
-    font-size: 12px;
-    cursor: pointer;
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  transition-duration: 0.2s;
   }
-  .btn {
-    transition-duration: 0.4s;
-  }
+
   .btn:hover {
     background: linear-gradient(to right, #00076F,#44008B, #9F45B0, #E54ED0 );
-    color:black;
+    color: gold;
   }
