@@ -34,13 +34,27 @@ body
     font-size: 23px;
     font-weight: 900;
     width: 73%;
-    background: url(C:\Users\mhgon\Practtice\Project1\assests\images\galaxylight.jpg);
+    background: url();
     color:white;
   }
  
   .search-box:hover {
     color:gold;
   
+  }
+
+  .neon {
+    color:black;
+    text-shadow:
+      0 0 5px #CC00FF,
+      0 0 10px #CC00FF,
+      0 0 20px #CC00FF,
+      0 0 40px #9900FF,
+      0 0 80px #9900ff,
+      0 0 90px #262129,
+      0 0 100px #9900ff,
+      0 0 150px #9900FF;
+      font-weight: 800;
   }
 
   .search-container {
