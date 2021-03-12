@@ -60,3 +60,7 @@ body
   .search-container {
     width: 80vw;
   }
+
+  .hidden {
+    display: none;
+  }
