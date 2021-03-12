@@ -62,6 +62,7 @@ function formSubmitHandler (event) {
 
 let runSearchAPI = function (title) {
   streamingResultsEl.classList.remove("hidden"); 
+  titleInputEl.value=""
 
   let searchURL = 'https://api.watchmode.com/v1/search/?apiKey=' + apiKeyMode + '&search_field=name&search_value=' + title
 
@@ -92,6 +93,8 @@ let runTitleAPI = function (movieID) {
         response.json().then(function (data) {
           console.log(data);
           // render buttons for popular streaming services available
+          streamingResultsList.innerHTML=""
+          additionalList.innerHTML="" 
           for (i = 0; i < data.sources.length; i++) {
             if (data.sources[i].type === "sub") {
               if (data.sources[i].source_id === 203) {
