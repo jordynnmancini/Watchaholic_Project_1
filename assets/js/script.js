@@ -54,7 +54,18 @@ $(".btn").on("click", function (event) {
   console.log(title);
 
   const reviewURL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=' + title + '&api-key=' + apiKeyNYT;
-  console.log(reviewURL)
+  console.log(reviewURL);
+
+  fetch(reviewURL)
+    .then(function(response){
+      return response.json();
+    })
+    .then(function(data){
+      console.log(data);
+
+      const NYTReviewLink = data.results[0].link.url;
+      console.log(NYTReviewLink);
+    });
 });
 
 
