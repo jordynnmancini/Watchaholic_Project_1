@@ -65,6 +65,12 @@ $(".btn").on("click", function (event) {
 
       const NYTReviewLink = data.results[0].link.url;
       console.log(NYTReviewLink);
+
+      $('#nytreview-results-container').empty();
+      let reviewEl = $('<a>').text('New York Times Review').attr('href', NYTReviewLink);
+      let NYTReviewDiv = $('<div>');
+      NYTReviewDiv.append(reviewEl);
+      $('#nytreview-results-container').html(NYTReviewDiv);
     });
 });
 
