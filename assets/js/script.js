@@ -46,6 +46,14 @@ fetch(requestUrl)
     });
   });
 
+// NYT Review data and link
+$(".btn").on("click", function (event) {
+  event.preventDefault();
+  let title = $('#title-text').val().trim();
+  console.log(title);
+});
+
+
 // streaming info from WatchMode API 
 
 searchButton.addEventListener('click', formSubmitHandler); 
