@@ -15,16 +15,19 @@
         </br> 
 
     <div class= "container search-box" id= "search-box">
-        <form class="flex-column align-center">
+        <form id="title-form" class="flex-column align-center">
             <label class="form-label">Enter movie title:</label>
             <input id= "title-text" type="text"/> 
-            <button class= "btn" type="submit">Click me!</button>
+            <button id="click-me-button" class= "btn" type="submit">Click me!</button>
         </form>
     </div> 
     
+    <div id="omdb-results-container">
+
+    </div>
 
 
-    <div id="streaming-results-container">
+    <div id="streaming-results-container" class="hidden">
         <h2> Streaming Platforms with this Title: </h2>
         <ul id="streaming-list">
 
@@ -47,9 +50,7 @@
 
     </div>
 
-    <div id="omdb-results-container">
-
-    </div>
+   
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
