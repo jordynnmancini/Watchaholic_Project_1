@@ -57,7 +57,10 @@ body
     font-weight: 800;
 }
 
-.search-container {
-  width: 80vw;
-}
-  
+  .search-container {
+    width: 80vw;
+  }
+
+  .hidden {
+    display: none;
+  }
