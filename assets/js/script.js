@@ -53,9 +53,11 @@ $(".btn").on("click", function (event) {
   let title = $('#title-text').val().trim();
   console.log(title);
 
+  // created URL for NYT API call
   const reviewURL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=' + title + '&api-key=' + apiKeyNYT;
   console.log(reviewURL);
 
+  // fetched data from NYT API
   fetch(reviewURL)
     .then(function(response){
       return response.json();
@@ -63,9 +65,11 @@ $(".btn").on("click", function (event) {
     .then(function(data){
       console.log(data);
 
+      // isolate review URL from json data
       const NYTReviewLink = data.results[0].link.url;
       console.log(NYTReviewLink);
-
+      
+      //create new review link element and div. set new div to html
       $('#nytreview-results-container').empty();
       let reviewEl = $('<a>').text('New York Times Review').attr('href', NYTReviewLink);
       let NYTReviewDiv = $('<div>');
