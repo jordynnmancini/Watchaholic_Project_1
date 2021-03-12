@@ -7,6 +7,7 @@ const additionalList = document.querySelector("#additional-list");
 
 const apiKeyMode = 'hS3AcbOwvNPkH7KTEBOU8hfGk971AAexq4gZjvM1'
 const apiKeyOMDB = "fdb6720d"
+const apiKeyNYT = 'T6BXN6H37HkF7emcIuzQU36KKC95bSOE'
 
 //poster & data from OMDB API 
 $(".btn").on("click", function (event) {
@@ -51,6 +52,9 @@ $(".btn").on("click", function (event) {
   event.preventDefault();
   let title = $('#title-text').val().trim();
   console.log(title);
+
+  const reviewURL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=' + title + '&api-key=' + apiKeyNYT;
+  console.log(reviewURL)
 });
 
 
