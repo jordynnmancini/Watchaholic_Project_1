@@ -16,7 +16,7 @@ event.preventDefault();
 
 var title = $("#title-text").val().trim();
 
-var requestUrl = "http://www.omdbapi.com/?t="+title+"&apikey="+ apiKeyOMDB;
+var requestUrl = "https://www.omdbapi.com/?t="+title+"&apikey="+ apiKeyOMDB;
 
 fetch(requestUrl)
     .then(function(response) {
