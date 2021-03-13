@@ -5,7 +5,7 @@ const streamingResultsEl = document.querySelector("#streaming-results-container"
 const streamingResultsList = document.querySelector("#streaming-list");
 const additionalList = document.querySelector("#additional-list");
 
-const apiKeyMode = 'hS3AcbOwvNPkH7KTEBOU8hfGk971AAexq4gZjvM1'
+const apiKeyMode = 'ElJhpK6QLVuPKeRrwmtqaJCiNO7HkABInA8EHQ0Q'
 const apiKeyOMDB = "fdb6720d"
 const apiKeyNYT = 'T6BXN6H37HkF7emcIuzQU36KKC95bSOE'
 
@@ -73,6 +73,7 @@ $(".btn").on("click", function (event) {
       $('#nytreview-results-container').empty();
       let reviewEl = $('<a>').text('New York Times Review').attr('href', NYTReviewLink);
       let NYTReviewDiv = $('<div>');
+      reviewEl.addClass("btn"); 
       NYTReviewDiv.append(reviewEl);
       $('#nytreview-results-container').html(NYTReviewDiv);
     });
@@ -138,6 +139,7 @@ let runTitleAPI = function (movieID) {
                 Netflix.setAttribute("href", netflixHref);
                 Netflix.setAttribute("target", "_blank"); 
                 netflixLI.appendChild(Netflix);
+                netflixLI.classList.add("streaming-btn", "btn"); 
                 streamingResultsList.appendChild(netflixLI); 
                 
               }
@@ -149,6 +151,7 @@ let runTitleAPI = function (movieID) {
                 Hulu.setAttribute("href", huluHref);
                 Hulu.setAttribute("target", "_blank"); 
                 huluLI.appendChild(Hulu)
+                huluLI.classList.add("streaming-btn", "btn"); 
                 streamingResultsList.appendChild(huluLI); 
                 
               }
@@ -160,6 +163,7 @@ let runTitleAPI = function (movieID) {
                 amazonPrime.setAttribute("href", amazonHref);
                 amazonPrime.setAttribute("target", "_blank"); 
                 amazonLI.appendChild(amazonPrime)
+                amazonLI.classList.add("streaming-btn", "btn"); 
                 streamingResultsList.appendChild(amazonLI); 
                
               }
@@ -171,6 +175,7 @@ let runTitleAPI = function (movieID) {
                 HBOMax.setAttribute("href", maxHref);
                 HBOMax.setAttribute("target", "_blank"); 
                 maxLI.appendChild(HBOMax); 
+                maxLI.classList.add("streaming-btn", "btn"); 
                 streamingResultsList.appendChild(maxLI); 
                  
               }
@@ -181,7 +186,8 @@ let runTitleAPI = function (movieID) {
                 HBOGo.textContent = "HBO GO"
                 HBOGo.setAttribute("href", goHref);
                 HBOGo.setAttribute("target", "_blank");
-                goLI.appendChild(HBOGo)
+                goLI.appendChild(HBOGo);
+                goLI.classList.add("streaming-btn", "btn"); 
                 streamingResultsList.appendChild(goLI); 
                 
               }
@@ -192,7 +198,8 @@ let runTitleAPI = function (movieID) {
                 HBONow.textContent = "HBO NOW"
                 HBONow.setAttribute("href", nowHref);
                 HBONow.setAttribute("target", "_blank"); 
-                nowLI.appendChild(HBONow)
+                nowLI.appendChild(HBONow);
+                nowLI.classList.add("streaming-btn", "btn"); 
                 streamingResultsList.appendChild(nowLI); 
              
               }
@@ -203,7 +210,8 @@ let runTitleAPI = function (movieID) {
                 disneyPlus.textContent = "Disney +"
                 disneyPlus.setAttribute("href", disneyHref);
                 disneyPlus.setAttribute("target", "_blank"); 
-                disneyLI.appendChild(disneyPlus)
+                disneyLI.appendChild(disneyPlus);
+                disneyLI.classList.add("streaming-btn", "btn"); 
                 streamingResultsList.appendChild(disneyLI); 
               
               }
@@ -214,7 +222,8 @@ let runTitleAPI = function (movieID) {
                 appleTV.textContent = "AppleTV+"
                 appleTV.setAttribute("href", appleHref);
                 appleTV.setAttribute("target", "_blank"); 
-                appleLI.appendChild(appleTV)
+                appleLI.appendChild(appleTV);
+                appleLI.classList.add("streaming-btn", "btn"); 
                 streamingResultsList.appendChild(appleLI); 
                
               }
@@ -230,6 +239,7 @@ let runTitleAPI = function (movieID) {
               a.setAttribute("target", "_blank")
               li.appendChild(a); 
               additionalList.appendChild(li);
+              li.classList.add("add-li"); 
             }
           }
 
