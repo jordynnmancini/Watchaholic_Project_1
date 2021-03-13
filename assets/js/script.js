@@ -71,7 +71,7 @@ $(".btn").on("click", function (event) {
       
       //create new review link element and div. set new div to html
       $('#nytreview-results-container').empty();
-      let reviewEl = $('<a>').text('New York Times Review').attr('href', NYTReviewLink);
+      let reviewEl = $('<a>').text('New York Times Review').attr({'href':NYTReviewLink, 'target':'_blank'});
       let NYTReviewDiv = $('<div>');
       reviewEl.addClass("btn"); 
       NYTReviewDiv.append(reviewEl);
