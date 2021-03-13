@@ -64,3 +64,62 @@ body
   .hidden {
     display: none;
   }
+
+.streaming-btn {
+  list-style-type: none; 
+  display: inline; 
+  margin: 10px; 
+  background: linear-gradient(to right, #00076F,#44008B, #9F45B0, #E54ED0 );
+  border: 2px solid black;
+
+}
+
+
+
+.streaming-btn a {
+  color: gold; 
+  text-decoration: none; 
+  margin: auto; 
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 900;
+  
+} 
+
+.streaming-btn a:hover {
+  font-size: 22px; 
+  font-weight: bolder;
+  color: white; 
+}
+
+.add-li {
+  list-style-type: none;
+}
+
+.add-li a {
+  text-decoration: none;
+  color:#353839; 
+}
+
+.add-li a:hover {
+  color: gold; 
+}
+
+.accordion-header {
+  background: linear-gradient(to right, #00076F,#44008B, #9F45B0, #E54ED0 );
+}
+
+.accordion-button {
+  color: gold;
+  font-size: 20px; 
+  padding-left: 360px;
+}
+
+
+.accordion-button:focus{
+  background: linear-gradient(to right, #00076F,#44008B, #9F45B0, #E54ED0 );
+  color: white; 
+  font-size: 20px; 
+
+}
+
