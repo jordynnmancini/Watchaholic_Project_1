@@ -18,7 +18,7 @@ The application will return a link to the New York Times review of the queried m
 
 The application will return links to services through which the movie is available for viewing. 
 
-![alt text](assets/images/screenshot.png)
+![demonstration](./assets/images/demo.gif)
 
 ## Credits
 
