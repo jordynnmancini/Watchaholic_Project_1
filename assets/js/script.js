@@ -87,6 +87,7 @@ searchButton.addEventListener('click', formSubmitHandler);
 function formSubmitHandler (event) {
   event.preventDefault();
   var title = titleInputEl.value.trim();
+  localStorage.setItem("last search", title); 
 
   if (title) {
     runSearchAPI(title);
